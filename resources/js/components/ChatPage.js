@@ -26,6 +26,7 @@ export default class ChatPage extends Component {
         this.selectChat = this.selectChat.bind(this);
         this.inputHandler = this.inputHandler.bind(this);
         this.updateMessage = this.updateMessage.bind(this);
+        this.sendMessage = this.sendMessage.bind(this)
     }
 
     componentDidMount() {
