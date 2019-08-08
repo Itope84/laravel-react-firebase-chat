@@ -1,0 +1,149 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.user-list-item {
+    cursor: pointer;
+
+    &:hover {
+        background-color: #efefef;
+    }
+}
+
+.chat-window {
+    @include media-breakpoint-down(sm) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow-y: auto;
+        z-index: 10000000;
+        background-color: #fff;
+    }
+    .chat-footer {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 20%;
+    }
+
+    .chat-title {
+        height: 10%;
+    }
+
+    .chat-messages {
+        height: 70%;
+        overflow: auto;
+        background-color: rgba(222, 226, 230, 0.4);
+
+        .message {
+            display: flex;
+            width: 80%;
+            max-width: 300px;
+            margin-bottom: 1rem;
+            &.send {
+                margin-left: auto;
+                justify-content: flex-end;
+
+                .message-box {
+                    background-color: $accent;
+                }
+            }
+
+            &.receive {
+                margin-right: auto;
+
+                .message-box {
+                    background-color: #555;
+                }
+            }
+
+            .message-box {
+                border-radius: 10px;
+                color: #fff;
+            }
+
+            .chat-image {
+                width: 40px;
+                overflow: hidden;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                background-color: #cecece;
+            }
+        }
+    }
+}
+
+.border-all {
+  border: 2px solid rgba(96, 96, 94, 0.32);
+}
+
+.bg-dark-grey {
+  background-color: rgba(96, 96, 94, 0.62);
+}
+
+.chat-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.chat-list {
+  border-right: 1px solid rgba(96, 96, 94, 0.32);
+  overflow: auto;
+}
+
+.chat-image {
+  min-width: 40px;
+  width: 20%;
+  height: 40px;
+  max-width: 40px;
+  display: flex;
+  align-items: center;
+  background-color: #cecece;
+  overflow: hidden;
+}
+
+.chat-page {
+    height: 80vh;
+}
+
+input.imginput {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.rounded-right-0 {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.user-list-item {
+    &.active {
+        background-color: $accent;
+        a {
+            color: #fff !important;
+        }
+    }
+
+}
