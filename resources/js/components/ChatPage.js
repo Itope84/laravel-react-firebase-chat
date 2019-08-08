@@ -139,16 +139,16 @@ export default class ChatPage extends Component {
 
                     <div
                         className={
-                            "col-md-8 d-md-block h-100 position-relative mb-0 px-0 "
+                            "col-md-8 d-md-block h-100 position-relative mb-0 px-0 " + (!this.state.showChatWindow ? "d-none" : "")
                         }
                     >
                         <div className="chat-window w-100 h-100">
                             <div className="chat-title d-flex align-items-center border-bottom py-2 px-2">
                                 {this.state.activeChat ? (
-                                    <h5 className="mb-0">
+                                    <h5 className="mb-0 d-flex w-100 align-items-center">
                                         {this.state.activeChat.partner.name}
                                         <span
-                                            className="h3 d-md-none btn bg-transparent"
+                                            className="h3 ml-auto d-md-none mb-0 btn bg-transparent"
                                             onClick={() =>
                                                 this.setState({
                                                     showChatWindow: !this.state
@@ -156,7 +156,7 @@ export default class ChatPage extends Component {
                                                 })
                                             }
                                         >
-                                            <i className="fas fa-arrow-left" />
+                                            <i className="fas fa-times" />
                                         </span>
                                     </h5>
                                 ) : null}
