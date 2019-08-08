@@ -1,5 +1,41 @@
 import React, { Component } from "react";
 
+function formatDate(date) {
+    date = new Date(date);
+    const months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+    ];
+    return (
+        padNumber(date.getDate(), 2) +
+        " " +
+        months[date.getMonth()] +
+        ", " +
+        date.getFullYear() +
+        "; " +
+        padNumber(date.getHours() % 12, 2) +
+        ":" +
+        padNumber(date.getMinutes(), 2) +
+        " " +
+        (parseInt(date.getHours() / 12) ? "AM" : "PM")
+    );
+}
+
+function padNumber(num, numDigits) {
+    let s = "000" + num;
+    return s.substr(s.length - numDigits);
+}
+
 export default function MessageWindow(props) {
     return (
         <div className="chat-messages px-4 py-3" id="messageWindow">
@@ -7,7 +43,8 @@ export default function MessageWindow(props) {
                 <div
                     key={message.id}
                     className={
-                        "message " + (message.sender_id === props.userId
+                        "message " +
+                        (message.sender_id === props.userId
                             ? "send"
                             : "receive")
                     }
@@ -19,7 +56,7 @@ export default function MessageWindow(props) {
                                     {message.body}
                                 </div>
                                 <span className="tiny text-right mx-2 d-block">
-                                    25 Aug 2018 08:45 PM
+                                    {formatDate(message.created_at)}
                                 </span>
                             </div>
 
@@ -44,7 +81,7 @@ export default function MessageWindow(props) {
                                     {message.body}
                                 </div>
                                 <span className="tiny text-left mx-2 d-block">
-                                    25 Aug 2018 08:45 PM
+                                    {formatDate(message.created_at)}
                                 </span>
                             </div>
                         </React.Fragment>
